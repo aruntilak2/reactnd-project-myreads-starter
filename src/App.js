@@ -1,7 +1,10 @@
 import React from 'react'
 import BooksAPI from './BooksAPI'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import SearchPage from './components/searchpage'
 import './App.css'
+import {ErrorPage} from './components/error'
+
 
 class BooksApp extends React.Component {
   state = {
@@ -26,7 +29,13 @@ class BooksApp extends React.Component {
 
   render() {
     return (
-      <div className="app">
+    <BrowserRouter>
+        <div className="app">
+        <BrowserRouter>
+        <Route path="/search" component={SearchPage}>
+        </Route> 
+        {/* <Route component={ErrorPage} /> */}
+        </BrowserRouter>
         {this.state.showSearchPage 
         ? (
          <SearchPage gobackpage= {this.gobackpage}/>
@@ -205,6 +214,7 @@ class BooksApp extends React.Component {
           </div>
         )}
       </div>
+      </BrowserRouter>
     )
   }
 }
