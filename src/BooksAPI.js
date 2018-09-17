@@ -1,5 +1,5 @@
-{
-  books: [
+
+const  books= [
       {
           "title": "The Linux Command Line",
           "subtitle": "A Complete Introduction",
@@ -320,4 +320,5 @@
           "shelf": "read"
       }
   ]
-}
+
+  export default books;

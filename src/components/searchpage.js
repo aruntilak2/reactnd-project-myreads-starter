@@ -18,18 +18,11 @@ export default class SearchPage extends React.Component {
                     */
                     
                     }
-
-                    
-
-
-
-
                     <input type="text" placeholder="Search by title or author"/>
                 </div>
             </div>
             <div className="search-books-results">
                     <ol className="books-grid"></ol>
-                   
             </div>
          </div>
         )
