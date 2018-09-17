@@ -1,8 +1,23 @@
 import React, { Component } from 'react'
 
 export default class BooksPage extends Component {
+
+    putbooksonshelf = (books) => {
+
+        const currently = books.filter(book => book.shelf === 'currentlyReading');
+        const wanttoread = books.filter(book => book.shelf === 'wantToRead');
+        const read = books.filter(book => book.shelf === 'read');
+
+        return [
+            {type: 'Currently Reading', books: currently},
+            {type: 'Want To Read', books: wanttoread},
+            {type: 'Read', books: read}
+        ]
+    }
+
   render() {
-      const {clickSearch} = this.props;
+      const {clickSearch, books} = this.props;
+      console.log(this.putbooksonshelf(books));
     return (
         <div className="list-books">
             <div className="list-books-title">

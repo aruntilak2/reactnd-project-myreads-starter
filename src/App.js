@@ -32,8 +32,9 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    // console.log(books);
 
+    console.log(books);
+    
     return (
     <BrowserRouter>
        <div className="app">
@@ -46,9 +47,8 @@ class BooksApp extends React.Component {
           <SearchPage gobackpage = {this.gobackpage}/>
           ) 
           : (
-            <BooksPage clickSearch ={this.clickSearch}/>
+            <BooksPage books={books} clickSearch ={this.clickSearch}/>
           )}
-          
       </div>
      </BrowserRouter>
     )
