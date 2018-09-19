@@ -4,6 +4,8 @@ import './App.css'
 import MainPage from './MainPage';
 import SearchPage from './SearchPage';
 import Book from './Book';
+import { BrowserRouter } from 'react-router-dom'
+import {Route} from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
@@ -27,13 +29,23 @@ class BooksApp extends React.Component {
 
     return (
 
-      <div className="app">
-        {/* <MainPage 
-          books={this.state.books}
-          moveShelf = {this.moveShelf}
-        /> */}
-        <SearchPage />
-      </div>
+    <div className="app">
+      <Route exact path="/" render={() => (
+        <MainPage 
+        books={this.state.books}
+        moveShelf = {this.moveShelf}
+        />
+      )}         
+      />
+
+      <Route path="/search" render={() => (
+        <SearchPage 
+        books={this.state.books}
+        moveShelf = {this.moveShelf}
+        />
+      )}
+      />
+    </div>
     )
   }
 }
