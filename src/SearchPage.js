@@ -61,13 +61,13 @@ class SearchPage extends React.Component{
                         book.id === searchBooks.id?
                         shelf = book.shelf :
                         ''
-
                       });
                     return(
                       <li key={searchBooks.id}>
                       <Book 
                         book={searchBooks}
                         moveShelf={this.props.moveShelf}
+                        currentShelf={shelf}
                       />
                     </li>
                     )
