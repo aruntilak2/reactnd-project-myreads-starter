@@ -55,13 +55,23 @@ class SearchPage extends React.Component{
             <div className="search-books-results">
               <ol className="books-grid">
                 {
-                  this.state.searchBooks.map(searchBooks => (
-                    <li key={searchBooks.id}>
+                  this.state.searchBooks.map(searchBooks => {
+                      let shelf ='none';
+                      this.props.books.map(book => {
+                        book.id === searchBooks.id?
+                        shelf = book.shelf :
+                        ''
+
+                      });
+                    return(
+                      <li key={searchBooks.id}>
                       <Book 
                         book={searchBooks}
+                        moveShelf={this.props.moveShelf}
                       />
                     </li>
-                ))
+                    )
+                  })
                 }
               </ol>
             </div>
